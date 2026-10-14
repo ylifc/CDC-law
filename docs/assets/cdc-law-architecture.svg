@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1190" viewBox="0 0 1600 1190" role="img" aria-labelledby="title description">
+<title id="title">CDC Law 疾控法律知识库技术架构</title>
+<desc id="description">分类 PDF 和 JSON 元数据经文本解析、条文切分和 PaddleOCR 补充，形成包含 397 份文档、17039 条片段的 JSONL。SQLite FTS5 与使用 1024 维 qwen3-embedding:0.6b 的 Qdrant 分别提供关键词和语义检索，由 RRF 融合后交给本地 Ollama 问答，并输出来源引用和 CLI、HTTP、OpenAI 兼容接口。官网补充资料单独保存为待核对候选，不自动入库。</desc>
+<rect width="1600" height="1190" fill="#F4F7FA"/>
+
+<rect x="64" y="46" width="8" height="113" rx="4" fill="#087F8C" stroke="#087F8C" stroke-width="2"/>
+<text x="92" y="90" font-family="Noto Sans CJK SC, sans-serif" font-size="48" font-weight="800" fill="#16324F">CDC Law</text>
+<text x="339" y="89" font-family="Noto Sans CJK SC, sans-serif" font-size="39" font-weight="700" fill="#16324F">疾控法律知识库</text>
+<text x="94" y="137" font-family="Noto Sans CJK SC, sans-serif" font-size="25" font-weight="400" fill="#52667A">面向疾控与卫生健康业务的本地 RAG 检索问答系统</text>
+<rect x="1171" y="57" width="365" height="48" rx="24" fill="#E5EEF6" stroke="#E5EEF6" stroke-width="2"/>
+<text x="1196" y="89" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="500" fill="#16324F">系统架构示意 · 非运行截图</text>
+<rect x="64" y="210" width="380" height="224" rx="20" fill="#FFFFFF" stroke="#D6E1EA" stroke-width="2"/>
+<circle cx="105" cy="244" r="17" fill="#087F8C"/>
+<text x="94" y="251" font-family="Noto Sans CJK SC, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">01</text>
+<text x="136" y="255" font-family="Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#16324F">法规资料</text>
+<text x="90" y="299" font-family="Noto Sans CJK SC, sans-serif" font-size="25" font-weight="600" fill="#16324F">分类 PDF + JSON 元数据</text>
+<text x="90" y="343" font-family="Noto Sans CJK SC, sans-serif" font-size="25" font-weight="600" fill="#087F8C">935 份 PDF 已扫描</text>
+<text x="90" y="387" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#52667A">按 13 个业务类别组织</text>
+<rect x="510" y="210" width="470" height="224" rx="20" fill="#FFFFFF" stroke="#D6E1EA" stroke-width="2"/>
+<circle cx="551" cy="244" r="17" fill="#087F8C"/>
+<text x="540" y="251" font-family="Noto Sans CJK SC, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">02</text>
+<text x="582" y="255" font-family="Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#16324F">解析与 OCR 补充</text>
+<text x="536" y="299" font-family="Noto Sans CJK SC, sans-serif" font-size="25" font-weight="600" fill="#16324F">文本提取 → 按条文等结构切分</text>
+<rect x="536" y="324" width="418" height="79" rx="12" fill="#F4F8FB" stroke="#F4F8FB" stroke-width="2"/>
+<text x="552" y="355" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#52667A">解析失败的 PDF</text>
+<text x="552" y="387" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="500" fill="#16324F">PaddleOCR 识别 → 补充文本</text>
+<rect x="1046" y="210" width="490" height="224" rx="20" fill="#FFFFFF" stroke="#D6E1EA" stroke-width="2"/>
+<circle cx="1087" cy="244" r="17" fill="#087F8C"/>
+<text x="1076" y="251" font-family="Noto Sans CJK SC, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">03</text>
+<text x="1118" y="255" font-family="Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#16324F">合并入库文本</text>
+<text x="1072" y="300" font-family="Noto Sans CJK SC, sans-serif" font-size="27" font-weight="700" fill="#087F8C">397 份文档 · 17,039 条片段</text>
+<text x="1072" y="343" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="500" fill="#16324F">JSONL：普通解析 + OCR 结果</text>
+<text x="1072" y="387" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#52667A">保留标题、分类、条号和源文件路径</text>
+<path d="M 444 322 H 507" fill="none" stroke="#087F8C" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="496,315 507,322 496,329" fill="#087F8C"/>
+<path d="M 980 322 H 1043" fill="none" stroke="#087F8C" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1032,315 1043,322 1032,329" fill="#087F8C"/>
+<path d="M 1291 434 V 481 H 334 V 533" fill="none" stroke="#087F8C" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="327,522 334,533 341,522" fill="#087F8C"/>
+<rect x="617" y="461" width="366" height="39" rx="9" fill="#F4F7FA" stroke="#F4F7FA" stroke-width="2"/>
+<text x="634" y="488" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667A">同一批片段构建两类索引</text>
+<rect x="64" y="536" width="540" height="260" rx="20" fill="#FFFFFF" stroke="#D6E1EA" stroke-width="2"/>
+<circle cx="105" cy="570" r="17" fill="#087F8C"/>
+<text x="94" y="577" font-family="Noto Sans CJK SC, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">04</text>
+<text x="136" y="581" font-family="Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#16324F">关键词与语义索引</text>
+<rect x="90" y="608" width="488" height="64" rx="11" fill="#EFF4F9" stroke="#EFF4F9" stroke-width="2"/>
+<text x="106" y="649" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#16324F">关键词</text>
+<text x="219" y="649" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="500" fill="#16324F">SQLite FTS5 全文索引</text>
+<rect x="90" y="690" width="488" height="82" rx="11" fill="#E8F5F5" stroke="#E8F5F5" stroke-width="2"/>
+<text x="106" y="722" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="700" fill="#087F8C">语义</text>
+<text x="183" y="722" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="600" fill="#087F8C">Qdrant · 1,024 维向量</text>
+<text x="106" y="754" font-family="Noto Sans CJK SC, sans-serif" font-size="21" font-weight="500" fill="#52667A">Ollama / qwen3-embedding:0.6b</text>
+<rect x="674" y="560" width="340" height="212" rx="20" fill="#FFFFFF" stroke="#D6E1EA" stroke-width="2"/>
+<circle cx="715" cy="594" r="17" fill="#087F8C"/>
+<text x="704" y="601" font-family="Noto Sans CJK SC, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">05</text>
+<text x="746" y="605" font-family="Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#16324F">混合检索</text>
+<text x="700" y="652" font-family="Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#087F8C">RRF 排序融合</text>
+<text x="700" y="696" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#16324F">关键词精确匹配</text>
+<text x="700" y="735" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#16324F">+ 自然语言语义匹配</text>
+<path d="M 604 666 H 671" fill="none" stroke="#087F8C" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="660,659 671,666 660,673" fill="#087F8C"/>
+<rect x="1084" y="560" width="452" height="212" rx="20" fill="#FFFFFF" stroke="#D6E1EA" stroke-width="2"/>
+<circle cx="1125" cy="594" r="17" fill="#087F8C"/>
+<text x="1114" y="601" font-family="Noto Sans CJK SC, sans-serif" font-size="17" font-weight="600" fill="#FFFFFF">06</text>
+<text x="1156" y="605" font-family="Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#16324F">本地法规问答</text>
+<text x="1110" y="652" font-family="Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#087F8C">Ollama 本地大模型</text>
+<text x="1110" y="696" font-family="Noto Sans CJK SC, sans-serif" font-size="24" font-weight="400" fill="#16324F">基于召回条文组织回答</text>
+<text x="1110" y="735" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#16324F">检索上下文 → 回答与依据</text>
+<path d="M 1014 666 H 1081" fill="none" stroke="#087F8C" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1070,659 1081,666 1070,673" fill="#087F8C"/>
+<path d="M 1310 772 V 841" fill="none" stroke="#087F8C" stroke-width="3" stroke-linejoin="round"/>
+<polygon points="1303,830 1310,841 1317,830" fill="#087F8C"/>
+<rect x="1084" y="844" width="452" height="156" rx="20" fill="#16324F" stroke="#16324F" stroke-width="2"/>
+<text x="1110" y="889" font-family="Noto Sans CJK SC, sans-serif" font-size="28" font-weight="700" fill="#FFFFFF">可追溯回答与调用接口</text>
+<text x="1110" y="933" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#D3E6F3">来源引用 · 条文依据 · 原文回查</text>
+<text x="1110" y="974" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#D3E6F3">CLI / HTTP / OpenAI 兼容接口</text>
+<rect x="64" y="840" width="178" height="37" rx="9" fill="#E8F5F5" stroke="#E8F5F5" stroke-width="2"/>
+<text x="77" y="866" font-family="Noto Sans CJK SC, sans-serif" font-size="20" font-weight="600" fill="#087F8C">官网资料补充</text>
+<rect x="64" y="901" width="380" height="99" rx="15" fill="#F9FBFD" stroke="#D6E1EA" stroke-width="2"/>
+<text x="90" y="940" font-family="Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700" fill="#16324F">官网检索与下载</text>
+<text x="90" y="978" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="400" fill="#52667A">补充本地法规检索结果</text>
+<rect x="510" y="901" width="470" height="99" rx="15" fill="#F9FBFD" stroke="#D6E1EA" stroke-width="2"/>
+<text x="536" y="940" font-family="Noto Sans CJK SC, sans-serif" font-size="26" font-weight="700" fill="#16324F">待核对候选资料</text>
+<text x="536" y="978" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667A">独立保存 · 不自动合并入库</text>
+<path d="M 444 951 H 507" fill="none" stroke="#52667A" stroke-width="3" stroke-linejoin="round" stroke-dasharray="8 7"/>
+<polygon points="496,944 507,951 496,958" fill="#52667A"/>
+<path d="M 64 1046 H 1536" fill="none" stroke="#D6E1EA" stroke-width="3" stroke-linejoin="round"/>
+<text x="64" y="1090" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="400" fill="#52667A">数据范围：935 份扫描 PDF 中，397 份贡献入库片段；法规效力状态仍需核验。</text>
+<text x="64" y="1142" font-family="Noto Sans CJK SC, sans-serif" font-size="23" font-weight="500" fill="#16324F">数据快照：2026-07-03 · 架构核对：2026-10-14</text>
+<text x="1286" y="1142" font-family="Noto Sans CJK SC, sans-serif" font-size="22" font-weight="700" fill="#087F8C">CDC LAW  /  RAG</text>
+</svg>
