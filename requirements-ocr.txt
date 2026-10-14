@@ -1,0 +1,4 @@
+-r requirements.txt
+# Optional OCR stack. Select the appropriate PaddlePaddle build for your device.
+paddleocr==3.7.0
+paddlepaddle==3.3.1

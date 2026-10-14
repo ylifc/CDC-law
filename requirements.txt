@@ -1,0 +1,10 @@
+# Direct dependencies verified in the source environment on 2026-10-14.
+PyMuPDF==1.28.0
+tqdm==4.67.3
+requests==2.34.1
+qdrant-client==1.18.0
+fastapi==0.122.0
+uvicorn==0.38.0
+pydantic==2.13.4
+beautifulsoup4==4.15.0
+trafilatura==2.1.0
