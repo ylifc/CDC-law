@@ -1,0 +1,14 @@
+use_default_settings: true
+
+search:
+  formats:
+    - html
+    - json
+
+server:
+  # Replace locally before starting SearXNG; do not commit the real value.
+  secret_key: "REPLACE_WITH_A_RANDOM_LOCAL_SECRET"
+  image_proxy: false
+  limiter: false
+  public_instance: false
+  method: "GET"
